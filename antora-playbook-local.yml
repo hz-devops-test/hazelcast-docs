@@ -33,8 +33,12 @@ ui:
     snapshot: true
 asciidoc:
   attributes:
+    # Download images from kroki at build time (does not work for inline images)
+    kroki-fetch-diagram: true
+    # Inlude next and previous links on each page
     page-pagination: true
     idprefix: ''
+    # Separate anchor link names by dashes
     idseparator: '-'
     page-survey: https://www.surveymonkey.co.uk/r/NYGJNF9
     imdg-javadoc: https://docs.hazelcast.org/docs/latest-dev/javadoc
@@ -46,3 +50,4 @@ asciidoc:
     docs-archive: 'https://hazelcast.org/imdg/download/archives/'
   extensions:
     - ./lib/tabs-block.js
+    - asciidoctor-kroki
