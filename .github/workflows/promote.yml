@@ -2,6 +2,7 @@ name: Promote Release
 run-name: ${{ github.workflow }} (`${{ inputs.VERSION }}`@${{ inputs.ENVIRONMENT }})
 
 on:
+  # Called from release orchestrator
   workflow_dispatch:
     inputs:
       VERSION:
@@ -24,36 +25,27 @@ on:
         required: false
 
 jobs:
-  prepare:
+  promote:
     runs-on: ubuntu-slim
+    permissions:
+      contents: read
+      id-token: write
+      pull-requests: write
     steps:
       - name: Logging distinct ID (${{ inputs.distinct_id }})
         run: echo "${DISTINCT_ID}"
         env:
           DISTINCT_ID: ${{ inputs.distinct_id }}
 
-  promote:
-    runs-on: ${{ github.event.repository.fork && 'ubuntu-latest' || 'ubicloud-standard-2' }}
-    needs: prepare
-    environment:
-      name: ${{ inputs.ENVIRONMENT }}
-      deployment: false
-    permissions:
-      contents: read
-      id-token: write
-      pull-requests: write
-    steps:
       - name: Checkout `main` automation scripts
         uses: actions/checkout@v7
 
       - name: Get release info
         id: get-rel-info
-        uses: hazelcast/mono-actions/release-info@DI-719-migrate-antora-1
+        uses: hazelcast/mono-actions/get-release-info@DI-719-migrate-antora-1
         with:
           release-version: ${{ inputs.VERSION }}
-          jfrog-files-repo: ${{ vars.JFROG_PREPROD_FILES_REPO }}
           github-token: ${{ secrets.GH_TOKEN }}
-          aws-role-to-assume: ${{ vars.AWS_HAZELCAST_OIDC_GITHUB_ACTIONS_ROLE_ARN }}
 
       - name: Merge Redirects Pull Requests
         shell: python
