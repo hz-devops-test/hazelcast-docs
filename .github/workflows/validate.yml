@@ -9,7 +9,7 @@ on:
 
 jobs:
   check-links:
-
+    if: ${{ !startsWith(github.head_ref, 'update_antora_') }}
     runs-on: ubuntu-latest
 
     steps:
