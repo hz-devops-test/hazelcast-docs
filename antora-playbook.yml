@@ -3,6 +3,10 @@ site:
   title: Documentation
   start_page: home::index.adoc
   url: https://docs.hazelcast.com
+  robots: |
+    User-agent: *
+    Allow: /
+    Sitemap: https://docs.hazelcast.com/sitemap.xml
   keys:
     google_analytics: 'GTM-MQ59XD6'
     # The following 3 parameters: id, api and index are used for
@@ -12,8 +16,6 @@ site:
     docsearch_index: 'prod_hazelcast_docs'
     # KapaAI Website ID
     ai_search_id: '6b326171-dd1e-40c6-a948-1f9bb6c0ed52'
-    # Clarity
-    clarity: 'l8c076m4u9'
 urls:
   #  https://docs.antora.org/antora/latest/playbook/urls-html-extension-style/
   html_extension_style: drop

@@ -30,7 +30,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - uses: actions/setup-node@v6
+    - uses: actions/setup-node@v7
       with:
         node-version: 24
         cache: 'npm'
@@ -63,3 +63,4 @@ runs:
       with:
        slack-webhook-url: ${{ inputs.SLACK_WEBHOOK }}
        slack-channel: "#docs-notifications"
+       status: failure

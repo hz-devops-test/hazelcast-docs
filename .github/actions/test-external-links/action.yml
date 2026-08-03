@@ -86,3 +86,4 @@ runs:
           with:
             slack-webhook-url: ${{ inputs.SLACK_WEBHOOK }}
             slack-channel: "#docs-notifications"
+            status: failure
