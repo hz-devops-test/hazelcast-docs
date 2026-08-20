@@ -43,6 +43,18 @@
     {
       "url": "https://docs.hazelcast.com/hazelcast/(?P<version>.*?)/",
       "tags": [
+        "hazelcast-5.8"
+      ],
+      "variables": {
+        "version": [
+          "5.8"
+        ]
+      },
+      "selectors_key": "hz"
+    },
+    {
+      "url": "https://docs.hazelcast.com/hazelcast/(?P<version>.*?)/",
+      "tags": [
         "hazelcast-5.7"
       ],
       "variables": {
