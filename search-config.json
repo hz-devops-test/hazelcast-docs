@@ -19,11 +19,23 @@
       "url": "https://docs.hazelcast.com/hazelcast/(?P<version>.*?)/",
       "page_rank": 1,
       "tags": [
-        "hazelcast-6.0-snapshot"
+        "hazelcast-6.1-snapshot"
       ],
       "variables": {
         "version": [
-          "6.0-snapshot"
+          "6.1-snapshot"
+        ]
+      },
+      "selectors_key": "hz"
+    },
+    {
+      "url": "https://docs.hazelcast.com/hazelcast/(?P<version>.*?)/",
+      "tags": [
+        "hazelcast-6.0"
+      ],
+      "variables": {
+        "version": [
+          "6.0"
         ]
       },
       "selectors_key": "hz"
